@@ -208,6 +208,9 @@ Vagrant.configure("2") do |config|
   # Provision Vim
   # config.vm.provision "shell", path: "#{github_url}/scripts/vim.sh", args: github_url
 
+  # Install zsh
+  # config.vm.provision "shell", path: "#{github_url}/scripts/zsh.sh"
+
   # Provision Docker
   # config.vm.provision "shell", path: "#{github_url}/scripts/docker.sh", args: "permissions"
 
@@ -252,6 +255,9 @@ Vagrant.configure("2") do |config|
 
   # Provision Neo4J
   # config.vm.provision "shell", path: "#{github_url}/scripts/neo4j.sh"
+
+  # Install adminer
+  # config.vm.provision "shell", path: "#{github_url}/scripts/adminer.sh"
 
   ####
   # Search Servers
@@ -342,6 +348,9 @@ Vagrant.configure("2") do |config|
 
   # Install Mailcatcher
   # config.vm.provision "shell", path: "#{github_url}/scripts/mailcatcher.sh"
+
+  # Install Mailhog
+  # config.vm.provision "shell", path: "#{github_url}/scripts/mailhog.sh"
 
   # Install git-ftp
   # config.vm.provision "shell", path: "#{github_url}/scripts/git-ftp.sh", privileged: false
