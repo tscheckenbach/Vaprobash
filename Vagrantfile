@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 # Config Github Settings
-github_username = "fideloper"
+github_username = "tscheckenbach"
 github_repo     = "Vaprobash"
 github_branch   = "1.4.2"
 github_url      = "https://raw.githubusercontent.com/#{github_username}/#{github_repo}/#{github_branch}"
@@ -21,9 +21,9 @@ hostname        = "vaprobash.dev"
 #   10.0.0.1    - 10.255.255.254
 #   172.16.0.1  - 172.31.255.254
 #   192.168.0.1 - 192.168.255.254
-server_ip             = "192.168.22.10"
-server_cpus           = "1"   # Cores
-server_memory         = "384" # MB
+server_ip             = "10.17.6.5"
+server_cpus           = "2"   # Cores
+server_memory         = "2048" # MB
 server_swap           = "768" # Options: false | int (MB) - Guideline: Between one or two times the server_memory
 
 # UTC        for Universal Coordinated Time
@@ -31,7 +31,7 @@ server_swap           = "768" # Options: false | int (MB) - Guideline: Between o
 # CET        for Central European Time
 # US/Central for American Central
 # US/Eastern for American Eastern
-server_timezone  = "UTC"
+server_timezone  = "Europe/Berlin"
 
 # Database Configuration
 mysql_root_password   = "root"   # We'll assume user "root"
@@ -67,7 +67,7 @@ composer_packages     = [        # List any global Composer packages that you wa
 # Default web server document root
 # Symfony's public directory is assumed "web"
 # Laravel's public directory is assumed "public"
-public_folder         = "/vagrant"
+public_folder         = "/vagrant/www"
 
 laravel_root_folder   = "/vagrant/laravel" # Where to install Laravel. Will `composer install` if a composer.json file exists
 laravel_version       = "latest-stable" # If you need a specific version of Laravel, set it here
