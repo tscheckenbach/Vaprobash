@@ -1,23 +1,21 @@
 #!/usr/bin/env bash
 
-sudo su vagrant
-cd ~/
 echo ">>> Install Oh-My-ZSH"
 sudo apt-get install -y zsh
 wget http://install.ohmyz.sh -O - | zsh
 
 echo ">>> Install powerlevel9k theme"
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel9k\/powerlevel9k"/' ~/.zshrc
+git clone https://github.com/bhilburn/powerlevel9k.git /home/vagrant/.oh-my-zsh/custom/themes/powerlevel9k
+sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel9k\/powerlevel9k"/' /home/vagrant/.zshrc
 
 echo ">>> Install Z"
 git clone https://github.com/rupa/z.git
-mv z/z.sh ~/.z.sh
-touch ~/.z
+mv z/z.sh /home/vagrant/.z.sh
+touch /home/vagrant/.z
 rm -rf z
 
 echo ">>> Activate Z and update powerlevel9k config"
-cat >> ~/.zshrc << EOF
+cat >> /home/vagrant/.zshrc << EOF
 # Enable Z
 . ~/.z.sh
 # POWERLEVEL9K SETTINGS #
