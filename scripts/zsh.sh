@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 sudo su vagrant
+cd ~/
 echo ">>> Install Oh-My-ZSH"
 sudo apt-get install -y zsh
 wget http://install.ohmyz.sh -O - | zsh
@@ -26,4 +27,4 @@ POWERLEVEL9K_DISABLE_RPROMPT=true
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 EOF
 
-sudo chsh -s /bin/zsh
+sudo chsh -s /bin/zsh vagrant
