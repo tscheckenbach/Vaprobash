@@ -2,13 +2,11 @@
 
 echo ">>> Installing Mailhog"
 
-cd ~/
-
 # Download binary from github
-wget --quiet -O ~/mailhog https://github.com/mailhog/MailHog/releases/download/v0.1.3/MailHog_linux_amd64
+sudo wget --quiet -O /usr/local/bin/mailhog https://github.com/mailhog/MailHog/releases/download/v0.2.0/MailHog_linux_amd64
 
 # Make it executable
-chmod +x ~/mailhog
+sudo chmod +x /usr/local/bin/mailhog
 
 # Make it start on reboot
 sudo tee /etc/init/mailhog.conf <<EOL
@@ -17,7 +15,7 @@ start on runlevel [2345]
 stop on runlevel [!2345]
 respawn
 pre-start script
-	exec su - vagrant -c "/usr/bin/env ~/mailhog > /dev/null 2>&1 &"
+	exec su - vagrant -c "/usr/bin/env /usr/local/bin/mailhog > /dev/null 2>&1 &"
 end script
 EOL
 
