@@ -2,8 +2,7 @@
 
 echo ">>> Install Oh-My-ZSH"
 sudo apt-get install -y zsh
-cd /home/vagrant
-wget http://install.ohmyz.sh -O /home/vagrant/.oh-my-zsh | zsh
+sudo su - vagrant -c 'wget http://install.ohmyz.sh -O - | zsh'
 
 echo ">>> Install powerlevel9k theme"
 git clone https://github.com/bhilburn/powerlevel9k.git /home/vagrant/.oh-my-zsh/custom/themes/powerlevel9k
@@ -18,7 +17,7 @@ rm -rf z
 echo ">>> Activate Z and update powerlevel9k config"
 cat >> /home/vagrant/.zshrc << EOF
 # Enable Z
-. ~/.z.sh
+. /home/vagrant/.z.sh
 # POWERLEVEL9K SETTINGS #
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(load ram)
@@ -27,8 +26,8 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 EOF
 
 sudo chown -R vagrant:vagrant /home/vagrant/.oh-my-zsh
-sudo chown vagrant:vagrant /home/vagrant/.z
 sudo chown vagrant:vagrant /home/vagrant/.z.sh
+sudo chown vagrant:vagrant /home/vagrant/.z
 sudo chown vagrant:vagrant /home/vagrant/.zshrc
 
 sudo chsh -s /bin/zsh vagrant
