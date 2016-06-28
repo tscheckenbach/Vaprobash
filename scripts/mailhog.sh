@@ -23,6 +23,7 @@ EOL
 sudo service mailhog start
 
 echo ">>> Installing mhsendmail"
+source /home/vagrant/.gvm/scripts/gvm
 go get github.com/mailhog/mhsendmail
 echo "sendmail_path = $GOPATH/bin/mhsendmail" | sudo tee /etc/php5/mods-available/mailhog.ini
 sudo php5enmod mailhog
