@@ -257,7 +257,7 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/neo4j.sh"
 
   # Install adminer
-  # config.vm.provision "shell", path: "#{github_url}/scripts/adminer.sh"
+  # config.vm.provision "shell", path: "#{github_url}/scripts/adminer.sh", args: [public_folder]
 
   ####
   # Search Servers
