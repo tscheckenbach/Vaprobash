@@ -92,7 +92,7 @@ elasticsearch_version = "2.3.1" # 5.0.0-alpha1, 2.3.1, 2.2.2, 2.1.2, 1.7.5
 Vagrant.configure("2") do |config|
 
   # Set server to Ubuntu 14.04
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
 
   config.vm.define "Vaprobash" do |vapro|
   end
