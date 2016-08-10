@@ -14,6 +14,32 @@ sudo apt-get update
 # -qq implies -y --force-yes
 sudo apt-get install -qq mongodb-org
 
+cat > /etc/systemd/system/mongodb.service << EOF
+[Unit]
+Description=MongoDB Database Service
+Wants=network.target
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/mongod --config /etc/mongod.conf
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+User=mongodb
+Group=mongodb
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# create data directory
+sudo mkdir -p /data/db
+sudo chown mongodb:mongodb /data/db
+
+sudo systemctl enable mongodb.service
+sudo systemctl start mongodb
+
 # Make MongoDB connectable from outside world without SSH tunnel
 if [ $1 == "true" ]; then
     # enable remote access
@@ -29,7 +55,7 @@ if [ $PHP_IS_INSTALLED -eq 0 ]; then
     PHP_VERSION=$(find /etc/php -mindepth 1 -maxdepth 1 -type d | grep -o "[[:digit:]]\.[[:digit:]]")
 
     # install php-driver
-    sudo apt-get -qq php-mongodb
+    sudo apt-get -qq install php-mongodb
 
     sudo service php$PHP_VERSION-fpm restart
 fi
