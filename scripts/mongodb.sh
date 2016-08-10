@@ -28,18 +28,8 @@ PHP_IS_INSTALLED=$?
 if [ $PHP_IS_INSTALLED -eq 0 ]; then
     PHP_VERSION=$(find /etc/php -mindepth 1 -maxdepth 1 -type d | grep -o "[[:digit:]]\.[[:digit:]]")
 
-    # install dependencies
-    sudo apt-get -y install php-pear php-dev
+    # install php-driver
+    sudo apt-get -qq php-mongodb
 
-    # install php extension
-    echo "no" > answers.txt
-    sudo pecl install mongo < answers.txt
-    rm answers.txt
-
-    # add extension file and restart service
-    echo 'extension=mongo.so' | sudo tee /etc/php/$PHP_VERSION/mods-available/mongo.ini
-
-    ln -s /etc/php5/mods-available/mongo.ini /etc/php/$PHP_VERSION/fpm/conf.d/mongo.ini
-    ln -s /etc/php5/mods-available/mongo.ini /etc/php/$PHP_VERSION/cli/conf.d/mongo.ini
     sudo service php$PHP_VERSION-fpm restart
 fi
