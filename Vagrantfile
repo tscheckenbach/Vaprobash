@@ -343,6 +343,9 @@ Vagrant.configure("2") do |config|
   # Provision Symfony
   # config.vm.provision "shell", path: "#{github_url}/scripts/symfony.sh", privileged: false, args: [server_ip, symfony_root_folder, public_folder]
 
+  # Provision Phalcon PHP
+  # config.vm.provision "shell", path: "#{github_url}/scripts/phalcon.sh"
+
   # Install Screen
   # config.vm.provision "shell", path: "#{github_url}/scripts/screen.sh"
 
