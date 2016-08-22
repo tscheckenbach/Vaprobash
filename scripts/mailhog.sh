@@ -8,15 +8,16 @@ sudo wget --quiet -O /usr/local/bin/mailhog https://github.com/mailhog/MailHog/r
 # Make it executable
 sudo chmod +x /usr/local/bin/mailhog
 
-# Make it start on reboot
-sudo tee /etc/init/mailhog.conf <<EOL
-description "Mailhog"
-start on runlevel [2345]
-stop on runlevel [!2345]
-respawn
-pre-start script
-	exec su - ubuntu -c "/usr/bin/env /usr/local/bin/mailhog > /dev/null 2>&1 &"
-end script
+# Make mailhog a service
+sudo tee /etc/systemd/system/mailhog.service <<EOL
+[Unit]
+Description=MailHog Service
+After=network.service
+[Service]
+Type=simple
+ExecStart=/usr/bin/env /usr/local/bin/mailhog > /dev/null 2>&1 &
+[Install]
+WantedBy=multi-user.target
 EOL
 
 # Start it now
