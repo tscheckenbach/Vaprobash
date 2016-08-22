@@ -47,7 +47,7 @@ sudo apt-get install -qq nginx
 # Turn off sendfile to be more compatible with Windows, which can't use NFS
 sed -i 's/sendfile on;/sendfile off;/' /etc/nginx/nginx.conf
 
-# Set run-as user for PHP5-FPM processes to user/group "ubuntu"
+# Set run-as user for PHP7-FPM processes to user/group "ubuntu"
 # to avoid permission errors from apps writing to files
 sed -i "s/user www-data;/user ubuntu;/" /etc/nginx/nginx.conf
 sed -i "s/# server_names_hash_bucket_size.*/server_names_hash_bucket_size 64;/" /etc/nginx/nginx.conf
