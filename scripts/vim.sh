@@ -21,4 +21,4 @@ curl --silent -L $github_url/helpers/vimrc > /home/ubuntu/.vimrc
 sudo chown ubuntu:ubuntu /home/ubuntu/.vimrc
 
 # Install Vundle Bundles
-sudo su - vagrant -c 'vim +BundleInstall +qall'
+sudo su - ubuntu -c 'vim +BundleInstall +qall'
