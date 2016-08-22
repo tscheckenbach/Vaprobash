@@ -15,7 +15,7 @@ start on runlevel [2345]
 stop on runlevel [!2345]
 respawn
 pre-start script
-	exec su - vagrant -c "/usr/bin/env /usr/local/bin/mailhog > /dev/null 2>&1 &"
+	exec su - ubuntu -c "/usr/bin/env /usr/local/bin/mailhog > /dev/null 2>&1 &"
 end script
 EOL
 
@@ -23,7 +23,7 @@ EOL
 sudo service mailhog start
 
 echo ">>> Installing mhsendmail"
-source /home/vagrant/.gvm/scripts/gvm
+source /home/ubuntu/.gvm/scripts/gvm
 go get github.com/mailhog/mhsendmail
 echo "sendmail_path = $GOPATH/bin/mhsendmail" | sudo tee /etc/php5/mods-available/mailhog.ini
 sudo php5enmod mailhog
