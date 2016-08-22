@@ -26,7 +26,7 @@ echo ">>> Installing mhsendmail"
 source /home/ubuntu/.gvm/scripts/gvm
 go get github.com/mailhog/mhsendmail
 PHP_VERSION=$(find /etc/php -mindepth 1 -maxdepth 1 -type d | grep -o "[[:digit:]]\.[[:digit:]]")
-echo "sendmail_path = $GOPATH/bin/mhsendmail" | sudo tee /etc/php$PHP_VERSION/mods-available/mailhog.ini
+echo "sendmail_path = $GOPATH/bin/mhsendmail" | sudo tee /etc/php/$PHP_VERSION/mods-available/mailhog.ini
 sudo php$PHP_VERSIONenmod mailhog
 
 sudo service php$PHP_VERSION-fpm restart
