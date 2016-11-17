@@ -34,7 +34,7 @@ else
     # Install PHP
     # -qq implies -y --force-yes
     sudo apt-get install -qq php$PHP_VERSION-cli php$PHP_VERSION-fpm
-    sudo apt-get install -qq php-mysql php-pgsql php-curl php-gd php-gmp php-mcrypt php-mbstring php-xml php-sqlite3 php-memcached php-imagick php-intl php-xdebug
+    sudo apt-get install -qq php-mysql php-pgsql php-curl php-gd php-gmp php-mcrypt php-mbstring php-xml php-zip php-sqlite3 php-memcached php-imagick php-intl php-xdebug
     # Set PHP FPM to listen on TCP instead of Socket
     sudo sed -i "s/listen =.*/listen = 127.0.0.1:9000/" /etc/php/$PHP_VERSION/fpm/pool.d/www.conf
 
