@@ -4,8 +4,9 @@
 # Config Github Settings
 github_username = "tscheckenbach"
 github_repo     = "Vaprobash"
-github_branch   = "master"
+github_branch   = "feature/xenial"
 github_url      = "https://raw.githubusercontent.com/#{github_username}/#{github_repo}/#{github_branch}"
+#github_url      = "."
 
 # Because this:https://developer.github.com/changes/2014-12-08-removing-authorizations-token/
 # https://github.com/settings/tokens
