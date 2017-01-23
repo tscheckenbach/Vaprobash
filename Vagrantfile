@@ -350,11 +350,8 @@ Vagrant.configure("2") do |config|
   # Install Screen
   # config.vm.provision "shell", path: "#{github_url}/scripts/screen.sh"
 
-  # Install Mailcatcher
-  # config.vm.provision "shell", path: "#{github_url}/scripts/mailcatcher.sh"
-
   # Install Mailhog
-  # config.vm.provision "shell", path: "#{github_url}/scripts/mailhog.sh"
+  # config.vm.provision "shell", path: "#{github_url}/scripts/mailhog.sh", args: [php_version]
 
   # Install git-ftp
   # config.vm.provision "shell", path: "#{github_url}/scripts/git-ftp.sh", privileged: false
