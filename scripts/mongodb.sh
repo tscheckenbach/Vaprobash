@@ -52,10 +52,10 @@ php -v > /dev/null 2>&1
 PHP_IS_INSTALLED=$?
 
 if [ $PHP_IS_INSTALLED -eq 0 ]; then
-    PHP_VERSION=$(find /etc/php -mindepth 1 -maxdepth 1 -type d | grep -o "[[:digit:]]\.[[:digit:]]")
+    PHP_VERSION=$3
 
     # install php-driver
-    sudo apt-get -qq install php-mongodb
+    sudo apt-get -qq install php$PHP_VERSION-mongodb
 
     sudo service php$PHP_VERSION-fpm restart
 fi
