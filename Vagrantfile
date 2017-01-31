@@ -39,7 +39,7 @@ mysql_root_password   = "root"   # We'll assume user "root"
 mysql_version         = "5.7"    # Options: 5.5 | 5.6 | 5.7
 mysql_enable_remote   = "false"  # remote access enabled when true
 pgsql_root_password   = "root"   # We'll assume user "root"
-mongo_version         = "3.2"    # 3.2 only
+mongo_version         = "3.2"    # 3.2 | 3.4
 mongo_enable_remote   = "false"  # remote access enabled when true
 
 # Languages and Packages
