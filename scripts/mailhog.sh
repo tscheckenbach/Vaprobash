@@ -20,6 +20,9 @@ ExecStart=/usr/bin/env /usr/local/bin/mailhog > /dev/null 2>&1 &
 WantedBy=multi-user.target
 EOL
 
+sudo chmod 755 /etc/systemd/system/mailhog.service
+sudo systemctl enable mailhog.service
+
 # Start it now
 sudo service mailhog start
 
