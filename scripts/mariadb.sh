@@ -7,12 +7,12 @@ echo ">>> Installing MariaDB"
 sudo apt-get install mariadb-server
 
 # default version
-MARIADB_VERSION='10.1'
+MARIADB_VERSION='10.0'
 
 # Install MariaDB without password prompt
 # Set username to 'root' and password to 'mariadb_root_password' (see Vagrantfile)
-sudo debconf-set-selections <<< "maria-db-10.1 mysql-server/root_password password $1"
-sudo debconf-set-selections <<< "maria-db-10.1 mysql-server/root_password_again password $1"
+sudo debconf-set-selections <<< "maria-db-$MARIADB_VERSION mysql-server/root_password password $1"
+sudo debconf-set-selections <<< "maria-db-$MARIADB_VERSION mysql-server/root_password_again password $1"
 
 # Install MariaDB
 # -qq implies -y --force-yes
