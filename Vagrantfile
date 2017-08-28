@@ -317,6 +317,9 @@ Vagrant.configure("2") do |config|
   # Install RabbitMQ
   # config.vm.provision "shell", path: "#{github_url}/scripts/rabbitmq.sh", args: [rabbitmq_user, rabbitmq_password]
 
+  # Install Apache Apollo
+  config.vm.provision "shell", path: "#{github_url}/scripts/apache_apollo.sh", args: [php_version]
+
   ####
   # Additional Languages
   ##########
