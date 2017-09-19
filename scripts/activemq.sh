@@ -22,12 +22,15 @@ WorkingDirectory=/opt/activemq/bin
 ExecStart=/opt/activemq/bin/activemq start
 ExecStop=/opt/activemq/bin/activemq stop
 Restart=on-abort
-User=activemq
-Group=activemq
+User=root
+Group=root
 
 [Install]
 WantedBy=multi-user.target
 EOF
+
+sudo chmod 755 /etc/systemd/system/activemq.service
+
 sudo systemctl enable activemq.service
 sudo systemctl start activemq
 
