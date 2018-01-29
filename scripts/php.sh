@@ -48,11 +48,11 @@ else
 
     # Set run-as user for php$PHP_VERSION-FPM processes to user/group "ubuntu"
     # to avoid permission errors from apps writing to files
-    sudo sed -i "s/user = www-data/user = ubuntu/" /etc/php/$PHP_VERSION/fpm/pool.d/www.conf
-    sudo sed -i "s/group = www-data/group = ubuntu/" /etc/php/$PHP_VERSION/fpm/pool.d/www.conf
+    sudo sed -i "s/user = www-data/user = vagrant/" /etc/php/$PHP_VERSION/fpm/pool.d/www.conf
+    sudo sed -i "s/group = www-data/group = vagrant/" /etc/php/$PHP_VERSION/fpm/pool.d/www.conf
 
-    sudo sed -i "s/listen\.owner.*/listen.owner = ubuntu/" /etc/php/$PHP_VERSION/fpm/pool.d/www.conf
-    sudo sed -i "s/listen\.group.*/listen.group = ubuntu/" /etc/php/$PHP_VERSION/fpm/pool.d/www.conf
+    sudo sed -i "s/listen\.owner.*/listen.owner = vagrant/" /etc/php/$PHP_VERSION/fpm/pool.d/www.conf
+    sudo sed -i "s/listen\.group.*/listen.group = vagrant/" /etc/php/$PHP_VERSION/fpm/pool.d/www.conf
     sudo sed -i "s/listen\.mode.*/listen.mode = 0666/" /etc/php/$PHP_VERSION/fpm/pool.d/www.conf
 
 

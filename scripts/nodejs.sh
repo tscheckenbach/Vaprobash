@@ -36,8 +36,8 @@ if [[ $NODE_IS_INSTALLED -ne 0 ]]; then
 
     # Re-source user profiles
     # if they exist
-    if [[ -f "/home/ubuntu/.profile" ]]; then
-        . /home/ubuntu/.profile
+    if [[ -f "/home/vagrant/.profile" ]]; then
+        . /home/vagrant/.profile
     fi
 
     echo ">>> Installing Node.js version $NODEJS_VERSION"

@@ -33,8 +33,8 @@ sudo apt-get install -qq apache2
 
 echo ">>> Configuring Apache"
 
-# Add ubuntu user to www-data group
-sudo usermod -a -G www-data ubuntu
+# Add vagrant user to www-data group
+sudo usermod -a -G www-data vagrant
 
 # Apache Config
 # On separate lines since some may cause an error

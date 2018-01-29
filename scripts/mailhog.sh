@@ -27,7 +27,7 @@ sudo systemctl enable mailhog.service
 sudo service mailhog start
 
 echo ">>> Installing mhsendmail"
-source /home/ubuntu/.gvm/scripts/gvm
+source /home/vagrant/.gvm/scripts/gvm
 go get github.com/mailhog/mhsendmail
 PHP_VERSION=$1
 echo "sendmail_path = $GOPATH/bin/mhsendmail" | sudo tee /etc/php/$PHP_VERSION/mods-available/mailhog.ini

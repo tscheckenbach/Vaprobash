@@ -49,11 +49,11 @@ sed -i 's/sendfile on;/sendfile off;/' /etc/nginx/nginx.conf
 
 # Set run-as user for PHP7-FPM processes to user/group "ubuntu"
 # to avoid permission errors from apps writing to files
-sed -i "s/user www-data;/user ubuntu;/" /etc/nginx/nginx.conf
+sed -i "s/user www-data;/user vagrant;/" /etc/nginx/nginx.conf
 sed -i "s/# server_names_hash_bucket_size.*/server_names_hash_bucket_size 64;/" /etc/nginx/nginx.conf
 
-# Add ubuntu user to www-data group
-usermod -a -G www-data ubuntu
+# Add vagrant user to www-data group
+usermod -a -G www-data vagrant
 
 # Nginx enabling and disabling virtual hosts
 curl --silent -L $github_url/helpers/ngxen.sh > ngxen
