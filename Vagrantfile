@@ -93,7 +93,7 @@ elasticsearch_version = "2.3.1" # 5.0.0-alpha1, 2.3.1, 2.2.2, 2.1.2, 1.7.5
 Vagrant.configure("2") do |config|
 
   # Set server to Ubuntu 16.04
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "bento/ubuntu-16.04"
 
   config.vm.define "Vaprobash" do |vapro|
   end
@@ -156,8 +156,6 @@ Vagrant.configure("2") do |config|
 
   # If using VMWare Fusion
   config.vm.provider "vmware_fusion" do |vb, override|
-    override.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
-
     # Set server memory
     vb.vmx["memsize"] = server_memory
 
