@@ -10,7 +10,7 @@
 
 The goal of this project is to create easy to use bash scripts in order to provision a Vagrant server.
 
-1. This targets Ubuntu LTS releases, currently 14.04.*
+1. This targets Ubuntu LTS releases, currently 16.04.* using bento/ubuntu-16.0.4 as base
 2. This project will give users various popular options such as LAMP, LEMP
 3. This project will attempt some modularity. For example, users might choose to install a Vim setup, or not.
 
@@ -21,7 +21,7 @@ Some further assumptions and self-imposed restrictions. If you find yourself nee
 
 ## Dependencies
 
-* Vagrant `1.5.0`+
+* Vagrant `2.0.0`+
     * Use `vagrant -v` to check your version
 * Vitualbox or VMWare Fusion
 
@@ -31,13 +31,13 @@ Some further assumptions and self-imposed restrictions. If you find yourself nee
 
 ```bash
 # curl
-$ curl -L http://bit.ly/vaprobash > Vagrantfile
+$ curl -L http://hpbw.de/vaprobash-xenial > Vagrantfile
 
 # wget
-$ wget -O Vagrantfile http://bit.ly/vaprobash
+$ wget -O Vagrantfile http://hpbw.de/vaprobash-xenial
 ```
 
-> The `bit.ly` link will always point to the master branch version of the Vagrantfile.
+> The `hpbw.de` (bit.ly) link will always point to the xenial-xerus branch version of the Vagrantfile.
 
 **Second**, edit the `Vagrantfile` and uncomment which scripts you'd like to run. You can uncomment them by removing the `#` character before the `config.vm.provision` line.
 
@@ -76,6 +76,7 @@ Here's a quickstart screencast!
 	* PHP MsSQL (ability to connect to SQL Server)
 	* Screen
 	* Docker
+	* ZSH with Oh-My-ZSH
 * Web Servers
 	* Apache
 	* HHVM
@@ -89,6 +90,7 @@ Here's a quickstart screencast!
 	* Neo4J
 	* PostgreSQL
 	* SQLite
+	* Adminer.php
 * In-Memory Stores
 	* Memcached
 	* Redis
@@ -98,15 +100,19 @@ Here's a quickstart screencast!
 	* Beanstalkd
 	* Supervisord
     * Kibana
+    * Apache ActiveMQ
+    * Apache Apollo
 * Additional Languages
 	* NodeJS via NVM
 	* Ruby via RVM
+	* GO via GVM
 * Frameworks / Tooling
 	* Composer
 	* Laravel
 	* Symfony
+	* Phalcon PHP
 	* PHPUnit
-	* MailCatcher
+	* Mailhog
     * Ansible
 	* Android
 
