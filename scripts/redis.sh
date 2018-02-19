@@ -19,8 +19,8 @@ appendfsync everysec
 EOF
 
 # Persistence
-if [ ! -z "$1" ]; then
-	if [ "$1" == "persistent" ]; then
+if [ ! -z "$2" ]; then
+	if [ "$2" == "persistent" ]; then
 		echo ">>> Enabling Redis Persistence"
 
 		# add the config to the redis config includes
@@ -35,5 +35,18 @@ if [ ! -z "$1" ]; then
 		fi
 	fi # persistent
 fi # arg check
+
+# Test if PHP is installed
+php -v > /dev/null 2>&1
+PHP_IS_INSTALLED=$?
+
+if [ $PHP_IS_INSTALLED -eq 0 ]; then
+    PHP_VERSION=$1
+
+    # install php-driver
+    sudo apt-get -qq install php$PHP_VERSION-redis
+
+    sudo service php$PHP_VERSION-fpm restart
+fi
 
 sudo service redis-server restart

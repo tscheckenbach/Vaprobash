@@ -286,10 +286,10 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/memcached.sh"
 
   # Provision Redis (without journaling and persistence)
-  # config.vm.provision "shell", path: "#{github_url}/scripts/redis.sh"
+  # config.vm.provision "shell", path: "#{github_url}/scripts/redis.sh", args: [php_version]
 
   # Provision Redis (with journaling and persistence)
-  # config.vm.provision "shell", path: "#{github_url}/scripts/redis.sh", args: "persistent"
+  # config.vm.provision "shell", path: "#{github_url}/scripts/redis.sh", args: [php_version, "persistent"]
   # NOTE: It is safe to run this to add persistence even if originally provisioned without persistence
 
 
