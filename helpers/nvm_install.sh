@@ -29,7 +29,7 @@ else
 fi
 
 ZSHRC="/home/vagrant/.zshrc"
-if [ ! -f  $ZSHRC ]; then
+if [ -f  $ZSHRC ]; then
     # Append NVM script to ~/.zprofile
     if ! grep -qsc 'nvm.sh' $ZPROFILE; then
       echo ">>> Appending source string to $ZPROFILE"
