@@ -17,6 +17,7 @@ else
 fi
 
 PROFILE="/home/vagrant/.profile"
+ZPROFILE="/home/vagrant/.zprofile"
 SOURCE_STR="\n# This loads NVM\n[[ -s /home/vagrant/.nvm/nvm.sh ]] && . /home/vagrant/.nvm/nvm.sh"
 
 # Append NVM script to ~/.profile
@@ -25,4 +26,15 @@ if ! grep -qsc 'nvm.sh' $PROFILE; then
   printf "$SOURCE_STR" >> "$PROFILE"
 else
   echo ">>> Source string already in $PROFILE"
+fi
+
+ZSHRC="/home/vagrant/.zshrc"
+if [ ! -f  $ZSHRC ]; then
+    # Append NVM script to ~/.zprofile
+    if ! grep -qsc 'nvm.sh' $ZPROFILE; then
+      echo ">>> Appending source string to $ZPROFILE"
+      printf "$SOURCE_STR" >> "$ZPROFILE"
+    else
+      echo ">>> Source string already in $ZPROFILE"
+    fi
 fi
