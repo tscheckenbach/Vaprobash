@@ -55,8 +55,12 @@ if [[ $NODE_IS_INSTALLED -ne 0 ]]; then
     nvm alias default $NODEJS_VERSION
 
     nvm use default
-
 fi
+
+echo ">>> Start installing YARN"
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install --no-install-recommends yarn
 
 # Install (optional) Global Node Packages
 if [[ ! -z $NODE_PACKAGES ]]; then
