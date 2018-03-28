@@ -22,6 +22,10 @@ hostname        = "vaprobash.dev"
 #   10.0.0.1    - 10.255.255.254
 #   172.16.0.1  - 172.31.255.254
 #   192.168.0.1 - 192.168.255.254
+# NOTE: php cli debugging only works with an IP form 10.17.6.2 to 10.17.6.245,
+# otherwise you have to change the xdebug config within the vagrant box: remote_host: [HOST_GATEWAY_IP]
+# see: https://getpocket.com/a/read/646802591
+
 server_ip             = "10.17.6.5"
 server_cpus           = "2"   # Cores
 server_memory         = "2048" # MB
@@ -199,7 +203,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "#{github_url}/scripts/base_box_optimizations.sh", privileged: true
 
   # Provision PHP
-  # config.vm.provision "shell", path: "#{github_url}/scripts/php.sh", args: [php_timezone, hhvm, php_version]
+  # config.vm.provision "shell", path: "#{github_url}/scripts/php.sh", args: [php_timezone, hhvm, php_version, hostname]
 
   # Enable MSSQL for PHP
   # config.vm.provision "shell", path: "#{github_url}/scripts/mssql.sh"

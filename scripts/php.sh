@@ -5,6 +5,7 @@ export LANG=C.UTF-8
 PHP_TIMEZONE=$1
 HHVM=$2
 PHP_VERSION=$3
+HOSTNAME=$4
 
 if [[ $HHVM == "true" ]]; then
 
@@ -68,6 +69,7 @@ zend_extension=xdebug.so
 xdebug.remote_enable = 1
 xdebug.remote_connect_back = 1
 xdebug.remote_port = 9000
+xdebug.remote_host = 10.17.6.1
 xdebug.scream=0
 xdebug.cli_color=1
 xdebug.show_local_vars=1
@@ -77,6 +79,14 @@ xdebug.var_display_max_depth = 5
 xdebug.var_display_max_children = 256
 xdebug.var_display_max_data = 1024
 EOF
+
+    echo ">>>>>>>>>> Install php cli debug helper"
+    DEBUGPREFIX="/usr/bin/phpd"
+    sudo cat > ${DEBUGPREFIX} << EOF
+#!/bin/sh
+env PHP_IDE_CONFIG="serverName=${HOSTNAME}" XDEBUG_CONFIG="idekey=PHPSTORM" \$@
+EOF
+    sudo chmod 0777 ${DEBUGPREFIX}
 
     # PHP Error Reporting Config
     sudo sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/$PHP_VERSION/fpm/php.ini
