@@ -11,6 +11,11 @@ fi
 # Create directories needed for some .vimrc settings
 mkdir -p /home/vagrant/.vim/backup
 mkdir -p /home/vagrant/.vim/swap
+mkdir -p /home/vagrant/.vim/colors
+
+# add monokai color-scheme
+cd ~/.vim/colors
+wget https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim
 
 # Install Vundle and set owner of .vim files
 git clone https://github.com/gmarik/vundle.git /home/vagrant/.vim/bundle/vundle

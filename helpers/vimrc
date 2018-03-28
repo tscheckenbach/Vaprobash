@@ -9,7 +9,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Bundles Here
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
@@ -34,7 +33,7 @@ filetype plugin indent on
 set number
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme monokai
 
 " Yep, spaces
 set smartindent
