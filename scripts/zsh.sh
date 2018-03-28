@@ -2,7 +2,7 @@
 
 echo ">>> Install Oh-My-ZSH"
 sudo apt-get install -y zsh
-sudo su - vagrant -c 'wget http://install.ohmyz.sh -O - | zsh'
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo ">>> Install powerlevel9k theme"
 git clone https://github.com/bhilburn/powerlevel9k.git /home/vagrant/.oh-my-zsh/custom/themes/powerlevel9k
