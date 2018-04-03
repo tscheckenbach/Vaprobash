@@ -2,7 +2,9 @@
 
 echo ">>> Install Oh-My-ZSH"
 sudo apt-get install -y zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+## use installer with disabled git check
+sh -c "$(curl -fsSL https://gist.githubusercontent.com/tscheckenbach/dcf3c4511b30eb14820a08d71f553002/raw/4c483fd6495ccd01ee6e7cb978d90dc3717a61af/ohMyZshInstall.sh)"
 
 echo ">>> Install powerlevel9k theme"
 git clone https://github.com/bhilburn/powerlevel9k.git /home/vagrant/.oh-my-zsh/custom/themes/powerlevel9k
