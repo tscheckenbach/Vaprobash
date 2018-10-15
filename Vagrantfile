@@ -317,7 +317,7 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/zeromq.sh"
 
   # Install RabbitMQ
-  # config.vm.provision "shell", path: "#{github_url}/scripts/rabbitmq.sh", args: [rabbitmq_user, rabbitmq_password]
+  # config.vm.provision "shell", path: "#{github_url}/scripts/rabbitmq.sh", args: [rabbitmq_user, rabbitmq_password, php_version]
 
   # Install Apache ActiveMQ
   # config.vm.provision "shell", path: "#{github_url}/scripts/activemq.sh", args: [php_version]
