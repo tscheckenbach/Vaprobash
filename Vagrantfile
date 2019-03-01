@@ -203,16 +203,16 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "#{github_url}/scripts/base_box_optimizations.sh", privileged: true
 
   # Provision PHP
-  config.vm.provision "shell", path: "#{github_url}/scripts/php.sh", args: [php_timezone, hhvm, php_version, hostname]
+  # config.vm.provision "shell", path: "#{github_url}/scripts/php.sh", args: [php_timezone, hhvm, php_version, hostname]
 
   # Enable MSSQL for PHP
   # config.vm.provision "shell", path: "#{github_url}/scripts/mssql.sh"
 
   # Provision Vim
-  config.vm.provision "shell", path: "#{github_url}/scripts/vim.sh", args: github_url
+  # config.vm.provision "shell", path: "#{github_url}/scripts/vim.sh", args: github_url
 
   # Install zsh
-  config.vm.provision "shell", path: "#{github_url}/scripts/zsh.sh"
+  # config.vm.provision "shell", path: "#{github_url}/scripts/zsh.sh"
 
   # Provision Docker
   # config.vm.provision "shell", path: "#{github_url}/scripts/docker.sh", args: "permissions"
@@ -222,7 +222,7 @@ Vagrant.configure("2") do |config|
   ##########
 
   # Provision Apache Base
-  config.vm.provision "shell", path: "#{github_url}/scripts/apache.sh", args: [server_ip, public_folder, hostname, github_url]
+  # config.vm.provision "shell", path: "#{github_url}/scripts/apache.sh", args: [server_ip, public_folder, hostname, github_url]
 
   # Provision Nginx Base
   # config.vm.provision "shell", path: "#{github_url}/scripts/nginx.sh", args: [server_ip, public_folder, hostname, github_url]
@@ -233,7 +233,7 @@ Vagrant.configure("2") do |config|
   ##########
 
   # Provision MySQL
-  config.vm.provision "shell", path: "#{github_url}/scripts/mysql.sh", args: [mysql_root_password, mysql_version, mysql_enable_remote]
+  # config.vm.provision "shell", path: "#{github_url}/scripts/mysql.sh", args: [mysql_root_password, mysql_version, mysql_enable_remote]
 
   # Provision PostgreSQL
   # config.vm.provision "shell", path: "#{github_url}/scripts/pgsql.sh", args: pgsql_root_password
@@ -336,7 +336,7 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/rvm.sh", privileged: false, args: ruby_gems.unshift(ruby_version)
 
   # Install Go Version Manager (GVM)
-  config.vm.provision "shell", path: "#{github_url}/scripts/go.sh", privileged: false, args: [go_version]
+  # config.vm.provision "shell", path: "#{github_url}/scripts/go.sh", privileged: false, args: [go_version]
 
   ####
   # Frameworks and Tooling
@@ -359,7 +359,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "#{github_url}/scripts/screen.sh"
 
   # Install Mailhog
-  config.vm.provision "shell", path: "#{github_url}/scripts/mailhog.sh", args: [php_version]
+  # config.vm.provision "shell", path: "#{github_url}/scripts/mailhog.sh", args: [php_version]
 
   # Install git-ftp
   # config.vm.provision "shell", path: "#{github_url}/scripts/git-ftp.sh", privileged: false

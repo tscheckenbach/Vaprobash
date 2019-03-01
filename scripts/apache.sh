@@ -21,12 +21,6 @@ else
     public_folder="$2"
 fi
 
-if [[ -z $4 ]]; then
-    github_url="https://raw.githubusercontent.com/fideloper/Vaprobash/master"
-else
-    github_url="$4"
-fi
-
 # Install Apache
 # -qq implies -y --force-yes
 sudo apt-get install -qq apache2
@@ -41,7 +35,7 @@ sudo usermod -a -G www-data vagrant
 # if not installed
 sudo a2dismod mpm_prefork mpm_worker
 sudo a2enmod rewrite actions ssl
-curl --silent -L $github_url/helpers/vhost.sh > vhost
+curl --silent -L $4/helpers/vhost.sh > vhost
 sudo chmod guo+x vhost
 sudo mv vhost /usr/local/bin
 
