@@ -6,11 +6,14 @@
 
 [![Build Status](https://travis-ci.org/fideloper/Vaprobash.png?branch=master)](https://travis-ci.org/fideloper/Vaprobash)
 
+## Latest Version
+#### Find the latest version (for Ubuntu 18.04 Bionic Beaver) under [features/bionic-beaver](https://github.com/tscheckenbach/Vaprobash/tree/feature/bionic-beaver)
+
 ## Goal
 
 The goal of this project is to create easy to use bash scripts in order to provision a Vagrant server.
 
-1. This targets Ubuntu LTS releases, currently 14.04.*
+1. This targets Ubuntu LTS releases 14.04.* you can find versions for 16.04.* and 18.04.* under [features/xenial](https://github.com/tscheckenbach/Vaprobash/tree/feature/xenial) and [features/bionic-beaver](https://github.com/tscheckenbach/Vaprobash/tree/feature/bionic-beaver)
 2. This project will give users various popular options such as LAMP, LEMP
 3. This project will attempt some modularity. For example, users might choose to install a Vim setup, or not.
 
