@@ -4,9 +4,9 @@
 # Config Github Settings
 github_username = "tscheckenbach"
 github_repo     = "Vaprobash"
-github_branch   = "feature/xenial"
-github_url      = "https://raw.githubusercontent.com/#{github_username}/#{github_repo}/#{github_branch}"
-#github_url      = "."
+github_branch   = "feature/bionic-beaver"
+#github_url      = "https://raw.githubusercontent.com/#{github_username}/#{github_repo}/#{github_branch}"
+github_url      = "."
 
 # Because this:https://developer.github.com/changes/2014-12-08-removing-authorizations-token/
 # https://github.com/settings/tokens
@@ -14,7 +14,7 @@ github_pat          = ""
 
 # Server Configuration
 
-hostname        = "vaprobash.dev"
+hostname        = "vaprobash.test"
 
 # Set a local private network IP address.
 # See http://en.wikipedia.org/wiki/Private_network for explanation
@@ -48,7 +48,7 @@ mongo_enable_remote   = "false"  # remote access enabled when true
 
 # Languages and Packages
 php_timezone          = "Europe/Berlin"    # http://php.net/manual/en/timezones.php
-php_version           = "7.0"    # Options: 5.6 | 7.0 | 7.1
+php_version           = "7.2"    # Options: 7.1 | 7.2 | 7.3
 ruby_version          = "latest" # Choose what ruby version should be installed (will also be the default version)
 ruby_gems             = [        # List any Ruby Gems that you want to install
   #"jekyll",
@@ -97,7 +97,7 @@ elasticsearch_version = "2.3.1" # 5.0.0-alpha1, 2.3.1, 2.2.2, 2.1.2, 1.7.5
 Vagrant.configure("2") do |config|
 
   # Set server to Ubuntu 16.04
-  config.vm.box = "bento/ubuntu-16.04"
+  config.vm.box = "bento/ubuntu-18.04"
 
   config.vm.define "Vaprobash" do |vapro|
   end
@@ -203,16 +203,16 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "#{github_url}/scripts/base_box_optimizations.sh", privileged: true
 
   # Provision PHP
-  # config.vm.provision "shell", path: "#{github_url}/scripts/php.sh", args: [php_timezone, hhvm, php_version, hostname]
+  config.vm.provision "shell", path: "#{github_url}/scripts/php.sh", args: [php_timezone, hhvm, php_version, hostname]
 
   # Enable MSSQL for PHP
   # config.vm.provision "shell", path: "#{github_url}/scripts/mssql.sh"
 
   # Provision Vim
-  # config.vm.provision "shell", path: "#{github_url}/scripts/vim.sh", args: github_url
+  config.vm.provision "shell", path: "#{github_url}/scripts/vim.sh", args: github_url
 
   # Install zsh
-  # config.vm.provision "shell", path: "#{github_url}/scripts/zsh.sh"
+  config.vm.provision "shell", path: "#{github_url}/scripts/zsh.sh"
 
   # Provision Docker
   # config.vm.provision "shell", path: "#{github_url}/scripts/docker.sh", args: "permissions"
@@ -222,7 +222,7 @@ Vagrant.configure("2") do |config|
   ##########
 
   # Provision Apache Base
-  # config.vm.provision "shell", path: "#{github_url}/scripts/apache.sh", args: [server_ip, public_folder, hostname, github_url]
+  config.vm.provision "shell", path: "#{github_url}/scripts/apache.sh", args: [server_ip, public_folder, hostname, github_url]
 
   # Provision Nginx Base
   # config.vm.provision "shell", path: "#{github_url}/scripts/nginx.sh", args: [server_ip, public_folder, hostname, github_url]
@@ -233,7 +233,7 @@ Vagrant.configure("2") do |config|
   ##########
 
   # Provision MySQL
-  # config.vm.provision "shell", path: "#{github_url}/scripts/mysql.sh", args: [mysql_root_password, mysql_version, mysql_enable_remote]
+  config.vm.provision "shell", path: "#{github_url}/scripts/mysql.sh", args: [mysql_root_password, mysql_version, mysql_enable_remote]
 
   # Provision PostgreSQL
   # config.vm.provision "shell", path: "#{github_url}/scripts/pgsql.sh", args: pgsql_root_password
@@ -336,7 +336,7 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/rvm.sh", privileged: false, args: ruby_gems.unshift(ruby_version)
 
   # Install Go Version Manager (GVM)
-  # config.vm.provision "shell", path: "#{github_url}/scripts/go.sh", privileged: false, args: [go_version]
+  config.vm.provision "shell", path: "#{github_url}/scripts/go.sh", privileged: false, args: [go_version]
 
   ####
   # Frameworks and Tooling
@@ -344,7 +344,7 @@ Vagrant.configure("2") do |config|
 
   # Provision Composer
   # You may pass a github auth token as the first argument
-  # config.vm.provision "shell", path: "#{github_url}/scripts/composer.sh", privileged: false, args: [github_pat, composer_packages.join(" ")]
+  config.vm.provision "shell", path: "#{github_url}/scripts/composer.sh", privileged: false, args: [github_pat, composer_packages.join(" ")]
 
   # Provision Laravel
   # config.vm.provision "shell", path: "#{github_url}/scripts/laravel.sh", privileged: false, args: [server_ip, laravel_root_folder, public_folder, laravel_version]
@@ -356,10 +356,10 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/phalcon.sh", args: [php_version]
 
   # Install Screen
-  # config.vm.provision "shell", path: "#{github_url}/scripts/screen.sh"
+  config.vm.provision "shell", path: "#{github_url}/scripts/screen.sh"
 
   # Install Mailhog
-  # config.vm.provision "shell", path: "#{github_url}/scripts/mailhog.sh", args: [php_version]
+  config.vm.provision "shell", path: "#{github_url}/scripts/mailhog.sh", args: [php_version]
 
   # Install git-ftp
   # config.vm.provision "shell", path: "#{github_url}/scripts/git-ftp.sh", privileged: false
