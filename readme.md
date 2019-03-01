@@ -31,13 +31,13 @@ Some further assumptions and self-imposed restrictions. If you find yourself nee
 
 ```bash
 # curl
-$ curl -L http://hpbw.de/vaprobash-xenial > Vagrantfile
+$ curl -L https://hpbw.de/vaprobash-bionic-beaver > Vagrantfile
 
 # wget
-$ wget -O Vagrantfile http://hpbw.de/vaprobash-xenial
+$ wget -O Vagrantfile https://hpbw.de/vaprobash-bionic-beaver
 ```
 
-> The `hpbw.de` (bit.ly) link will always point to the xenial-xerus branch version of the Vagrantfile.
+> The `hpbw.de` (bit.ly) link will always point to the bionic-beaver branch version of the Vagrantfile.
 
 **Second**, edit the `Vagrantfile` and uncomment which scripts you'd like to run. You can uncomment them by removing the `#` character before the `config.vm.provision` line.
 
