@@ -56,7 +56,7 @@ ruby_gems             = [        # List any Ruby Gems that you want to install
   #"compass",
 ]
 
-go_version            = "latest" # Example: go1.4 (latest equals the latest stable version)
+go_version            = "latest" # Example: 1.12.6 (latest equals the latest stable version)
 
 # To install HHVM instead of PHP, set this to "true"
 hhvm                  = "false"
