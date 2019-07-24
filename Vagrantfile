@@ -96,7 +96,7 @@ elasticsearch_version = "2.3.1" # 5.0.0-alpha1, 2.3.1, 2.2.2, 2.1.2, 1.7.5
 
 Vagrant.configure("2") do |config|
 
-  # Set server to Ubuntu 16.04
+  # Set server to Ubuntu 18.04
   config.vm.box = "bento/ubuntu-18.04"
 
   config.vm.define "Vaprobash" do |vapro|
