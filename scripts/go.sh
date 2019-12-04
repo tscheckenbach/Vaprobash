@@ -8,7 +8,7 @@ else
 fi
 
 if [[ $GO_VERSION -eq "latest" ]]; then
-    curl https://raw.githubusercontent.com/skiy/golang-install/master/install.sh | sudo sh
+    curl https://raw.githubusercontent.com/skiy/golang-install/master/install.sh | sudo bash
 else 
-    curl -SL https://raw.githubusercontent.com/skiy/golang-install/master/install.sh | sudo sh /dev/stdin $GO_VERSION
+    curl -SL https://raw.githubusercontent.com/skiy/golang-install/master/install.sh | sudo bash /dev/stdin $GO_VERSION
 fi
