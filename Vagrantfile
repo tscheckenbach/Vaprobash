@@ -255,7 +255,7 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/mongodb.sh", args: [mongo_enable_remote, mongo_version, php_version]
 
   # Provision MariaDB
-  # config.vm.provision "shell", path: "#{github_url}/scripts/mariadb.sh", args: [mysql_root_password, mysql_enable_remote]
+  # config.vm.provision "shell", path: "#{github_url}/scripts/mariadb.sh", args: [mariadb_version, mysql_root_password, mysql_enable_remote]
 
   # Provision Neo4J
   # config.vm.provision "shell", path: "#{github_url}/scripts/neo4j.sh"
