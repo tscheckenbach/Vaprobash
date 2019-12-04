@@ -14,7 +14,7 @@ sudo apt-get update
 
 # Install base packages
 # -qq implies -y --force-yes
-sudo apt-get install -qq curl unzip git-core ack-grep software-properties-common build-essential cachefilesd
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq curl unzip git-core ack-grep software-properties-common build-essential cachefilesd
 
 
 echo ">>> Installing *.xip.io self-signed SSL"
