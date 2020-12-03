@@ -27,9 +27,10 @@ sudo systemctl enable mailhog.service
 sudo service mailhog start
 
 echo ">>> Installing mhsendmail"
-sudo go get github.com/mailhog/mhsendmail
+# not the official source, but has go mod enabled
+sudo go get github.com/jmcarbo/mhsendmail
 PHP_VERSION=$1
-echo "sendmail_path = $GOPATH/bin/mhsendmail" | sudo tee /etc/php/$PHP_VERSION/mods-available/mailhog.ini
+echo "sendmail_path = /usr/local/bin/mhsendmail" | sudo tee /etc/php/$PHP_VERSION/mods-available/mailhog.ini
 sudo phpenmod mailhog
 
 sudo service php$PHP_VERSION-fpm restart
